@@ -5,12 +5,19 @@ const putMessage = (message) => {
 
     newElement.appendChild(newContent);
     getDivResult.appendChild(newElement);
+
+    return newElement;
+};
+
+const putError = (message) => {
+    const messageElement = putMessage(message);
+    messageElement.setAttribute("class", "error");
 };
 
 const submit = function () {
     const getMonth = parseFloat(document.getElementById("month").value);
     if (isNaN(getMonth) ||getMonth < 1 || getMonth > 12) {
-        putMessage("Invalid number, please try again");
+        putError("Invalid number, please try again");
         return;
     } 
 
